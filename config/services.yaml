@@ -25,3 +25,11 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    Faker:
+      factory: ['Faker\Factory', 'create']
+      arguments: ['ru_RU']
+
+    Person:
+        class: '\Faker\Provider\ru_RU\Person'
+

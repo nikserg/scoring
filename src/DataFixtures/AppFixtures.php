@@ -22,7 +22,7 @@ class AppFixtures extends Fixture
     /**
      * @param ObjectManager $manager
      */
-    public function load(ObjectManager $manager)
+    public function load(ObjectManager $manager, Faker $faker)
     {
         //Предполагаем, что все пользовтели - русские
         $faker = Factory::create('ru_RU');
