@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Пользователь
@@ -20,27 +21,35 @@ class User
     private $id;
 
     /**
+     * @Assert\NotBlank
+     * @Assert\Unique
+     * @Assert\Email
      * @ORM\Column(type="string", length=255)
      */
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank
+     * @ORM\Column(type="string", length=255)
      */
     private $last_name;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank
+     * @ORM\Column(type="string", length=255)
      */
     private $first_name;
 
     /**
-     * @ORM\Column(type="string", length=11, nullable=true)
+     * @Assert\NotBlank
+     * @Assert\Regex("/^8\d{10}$/")
+     * @ORM\Column(type="string", length=11)
      */
     private $phone;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank
+     * @ORM\Column(type="string", length=255)
      */
     private $grade;
 

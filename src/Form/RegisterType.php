@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -21,14 +22,16 @@ class RegisterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', EmailType::class)
-            ->add('last_name')
-            ->add('first_name')
-            ->add('phone', TelType::class)
+            ->add('email', EmailType::class, ['label' => 'E-mail'])
+            ->add('last_name', TextType::class, ['label' => 'Фамилия'])
+            ->add('first_name', TextType::class, ['label' => 'Имя'])
+            ->add('phone', TelType::class, ['label' => 'Телефон',
+                                            'attr' => ['data-mask' => '8 (999) 999-99-99']])
             ->add('grade', ChoiceType::class, [
                 'choices' => array_flip(User\Grade::NAMES),
+                'label'   => 'Образование',
             ])
-            ->add('submit', SubmitType::class);
+            ->add('submit', SubmitType::class, ['label' => 'Зарегистрироваться']);
     }
 
     public function configureOptions(OptionsResolver $resolver)
