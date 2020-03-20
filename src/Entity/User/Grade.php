@@ -6,6 +6,12 @@
  * Time: 12:59
  */
 namespace App\Entity\User;
+
+/**
+ * Образование
+ *
+ * @package App\Entity\User
+ */
 class Grade {
     const HIGH_SCHOOL = 'high_school';
     const SPECIAL = 'special';
