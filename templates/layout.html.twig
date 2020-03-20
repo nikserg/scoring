@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+
+            <div class="col  text-center">
+                <h1>{% block title %}Скоринг{% endblock %}</h1>
+            </div>
+        </div>
+        {% block content %}{% endblock %}
+    </div>
+{% endblock %}
