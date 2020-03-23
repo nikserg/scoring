@@ -1,4 +1,4 @@
-#Установка
+# Установка
 * Перейти в папку проекта `cd /path/to/project/`
 * Склонировать репозиторий: `git clone git@github.com:nikserg/scoring.git .`
 * Установить пакеты `composer install` (предполагается, что composer есть в системе)
@@ -13,9 +13,9 @@ DATABASE_URL=mysql://root:123@127.0.0.1:3306/scoring?serverVersion=5.7
 * Запустить локальный сервер: `symfony server:start` (предполагается, что symfony установлена в системе) или настроить nginx/apache для работы с проектом
 * Открыть сайт, по умолчанию `http://localhost:8000`
 
-#Использование
+# Использование
 
-##Веб
+## Веб
 
 Предполагается, что сайт доступен по адресу `http://localhost:8000`
 
@@ -23,7 +23,7 @@ DATABASE_URL=mysql://root:123@127.0.0.1:3306/scoring?serverVersion=5.7
 
 Просмотр списка и управление пользователями: http://localhost:8000/admin
 
-##Консоль
+## Консоль
 
 Команда для пересчета скоринга: `php bin/console app:score [id]`
 
