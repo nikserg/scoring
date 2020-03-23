@@ -1,0 +1,41 @@
+easy_admin:
+    site_name: 'Скоринг'
+    design:
+        menu:
+            - { label: 'Администрирование', route: 'easyadmin' }
+            - { label: 'Регистрация', route: 'user_register' }
+    entities:
+        # List the entity class name you want to manage
+        User:
+            class: App\Entity\User
+            label: 'Пользователи'
+            form:
+                fields:
+                    - last_name
+                    - first_name
+                    - email
+                    - phone
+                    - { property: 'grade', type: 'App\Form\RegisterType\GradeType'}
+                    - personal_data
+            list:
+                actions: ['show', 'delete']
+                title: 'Список пользователей'
+                fields:
+                    - id
+                    - last_name
+                    - first_name
+                    - { property: 'email', type: 'email' }
+                    - { property: 'phone', type: 'tel' }
+                    - { property: 'grade', template: 'admin/list_grade.html.twig'}
+                    - score
+                    - personal_data
+            show:
+                fields:
+                    - id
+                    - last_name
+                    - first_name
+                    - { property: 'email', type: 'email' }
+                    - { property: 'phone', type: 'tel' }
+                    - { property: 'grade', template: 'admin/list_grade.html.twig'}
+                    - score
+                    - personal_data

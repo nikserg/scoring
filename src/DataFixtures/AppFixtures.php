@@ -23,7 +23,7 @@ class AppFixtures extends Fixture
      */
     protected $faker;
     /**
-     * @var Person
+     * @var \Faker\Provider\ru_RU\Person
      */
     protected $person;
 
@@ -44,11 +44,17 @@ class AppFixtures extends Fixture
             $user->setEmail($this->faker->email);
             //Фиксируем случайный пол
             $gender = rand(0, 1) ? Person::GENDER_FEMALE : Person::GENDER_MALE;
+            //Имя и фамилия, в зависимости от пола
             $user->setFirstName($this->person->firstName($gender));
             $user->setLastName($this->person->lastName($gender));
             //Генерируем телефон в наиболее коротком варианте
             $user->setPhone($this->faker->numerify('8##########'));
+            //Образование
             $user->setGrade($this->faker->randomKey(User\Grade::NAMES));
+            //Согласие на обработку данных
+            $user->setPersonalData($this->faker->boolean);
+
+            //Сохраняем
             $manager->persist($user);
         }
 

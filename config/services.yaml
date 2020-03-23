@@ -32,5 +32,5 @@ services:
       arguments: ['ru_RU']
 
     Faker\Provider\Person:
-        class: '\Faker\Provider\ru_RU\Person'
+        class: 'Faker\Provider\ru_RU\Person'
 

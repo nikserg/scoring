@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -10,6 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  *
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @UniqueEntity("email")
  */
 class User
 {
@@ -21,10 +23,9 @@ class User
     private $id;
 
     /**
-     * @Assert\NotBlank
-     * @Assert\Unique
      * @Assert\Email
-     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $email;
 
@@ -57,6 +58,11 @@ class User
      * @ORM\Column(type="integer", nullable=true)
      */
     private $score;
+
+    /**
+     * @ORM\Column(type="boolean", options={"default": false})
+     */
+    private $personal_data;
 
     public function getId(): ?int
     {
@@ -131,6 +137,18 @@ class User
     public function setScore(?int $score): self
     {
         $this->score = $score;
+
+        return $this;
+    }
+
+    public function getPersonalData(): ?bool
+    {
+        return $this->personal_data;
+    }
+
+    public function setPersonalData(bool $personal_data): self
+    {
+        $this->personal_data = $personal_data;
 
         return $this;
     }

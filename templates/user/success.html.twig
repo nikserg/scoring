@@ -1,0 +1,11 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Пользователь зарегистрирован!{% endblock %}
+{% block content %}
+    <div class="row justify-content-md-center">
+        <h1>Пользователь зарегистрирован!</h1>
+    </div>
+    <div class="row justify-content-md-center">
+
+        <a href="{{ path('user_register') }}"><button type="button" class="btn btn-success">Зарегистрировать еще</button></a>
+    </div>
+{% endblock %}
