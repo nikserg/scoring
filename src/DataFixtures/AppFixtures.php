@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\User;
+use App\Util\Phone;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Generator;
@@ -47,8 +48,10 @@ class AppFixtures extends Fixture
             //Имя и фамилия, в зависимости от пола
             $user->setFirstName($this->person->firstName($gender));
             $user->setLastName($this->person->lastName($gender));
+            //Все коды операторов
+            $opsos = $this->faker->randomElement(Phone::allCodes());
             //Генерируем телефон в наиболее коротком варианте
-            $user->setPhone($this->faker->numerify('8##########'));
+            $user->setPhone('8'.$opsos.$this->faker->numerify('#######'));
             //Образование
             $user->setGrade($this->faker->randomKey(User\Grade::NAMES));
             //Согласие на обработку данных

@@ -12,6 +12,13 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @UniqueEntity("email")
+ * @ORM\Table(indexes={
+ *     @ORM\Index(name="idx_score", columns={"score"}),
+ *     @ORM\Index(name="idx_last_name", columns={"last_name"}),
+ *     @ORM\Index(name="idx_first_name", columns={"first_name"}),
+ *     @ORM\Index(name="idx_phone", columns={"phone"}),
+ *     @ORM\Index(name="idx_personal_data", columns={"personal_data"}),
+ * })
  */
 class User
 {

@@ -7,17 +7,25 @@ use App\Form\RegisterType;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+/**
+ * Регистрация пользователя
+ *
+ * @package App\Controller
+ */
 class UserController extends AbstractController
 {
+
     /**
      * @Route("/", name="user_register")
      * @param Request $request
-     * @return Response
+     * @param EntityManagerInterface $entityManager
+     * @return RedirectResponse|Response
      */
     public function register(Request $request, EntityManagerInterface $entityManager)
     {

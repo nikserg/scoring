@@ -1,5 +1,6 @@
 <?php
 namespace App\Form\DataTransformer;
+use App\Util\Phone;
 use Symfony\Component\Form\DataTransformerInterface;
 
 /**
@@ -22,6 +23,6 @@ class PhoneTransformer implements DataTransformerInterface {
 
     public function reverseTransform($phone)
     {
-        return preg_replace('/\D/', '', $phone);
+        return Phone::normalize($phone);
     }
 }

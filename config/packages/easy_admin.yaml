@@ -8,34 +8,35 @@ easy_admin:
         # List the entity class name you want to manage
         User:
             class: App\Entity\User
-            label: 'Пользователи'
+            label: 'Пользователь'
             form:
                 fields:
-                    - last_name
-                    - first_name
-                    - email
-                    - phone
-                    - { property: 'grade', type: 'App\Form\RegisterType\GradeType'}
-                    - personal_data
+
+                    - { property: 'last_name', 'label': 'Фамилия'}
+                    - { property: 'first_name', 'label': 'Имя'}
+                    - { property: 'email', type: 'email', 'label': 'E-mail' }
+                    - { property: 'phone', type: 'tel', 'label': 'Телефон' }
+                    - { property: 'grade', type: 'App\Form\RegisterType\GradeType', 'label': 'Образование'}
+                    - { property: 'personal_data', 'label': 'Согласен с условиями'}
             list:
                 actions: ['show', 'delete']
                 title: 'Список пользователей'
                 fields:
                     - id
-                    - last_name
-                    - first_name
-                    - { property: 'email', type: 'email' }
-                    - { property: 'phone', type: 'tel' }
-                    - { property: 'grade', template: 'admin/list_grade.html.twig'}
-                    - score
-                    - personal_data
+                    - { property: 'last_name', 'label': 'Фамилия'}
+                    - { property: 'first_name', 'label': 'Имя'}
+                    - { property: 'email', type: 'email', 'label': 'E-mail' }
+                    - { property: 'phone', type: 'tel', 'label': 'Телефон' }
+                    - { property: 'grade', template: 'admin/list_grade.html.twig', 'label': 'Образование'}
+                    - { property: 'score', 'label': 'Скоринг'}
+                    - { property: 'personal_data', 'label': 'Согласен с условиями'}
             show:
                 fields:
                     - id
-                    - last_name
-                    - first_name
-                    - { property: 'email', type: 'email' }
-                    - { property: 'phone', type: 'tel' }
-                    - { property: 'grade', template: 'admin/list_grade.html.twig'}
-                    - score
-                    - personal_data
+                    - { property: 'last_name', 'label': 'Фамилия'}
+                    - { property: 'first_name', 'label': 'Имя'}
+                    - { property: 'email', type: 'email', 'label': 'E-mail' }
+                    - { property: 'phone', type: 'tel', 'label': 'Телефон' }
+                    - { property: 'grade', template: 'admin/list_grade.html.twig', 'label': 'Образование'}
+                    - { property: 'score', 'label': 'Скоринг'}
+                    - { property: 'personal_data', 'label': 'Согласен с условиями'}
